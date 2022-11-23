@@ -1,0 +1,18 @@
+﻿@model ClothesStore_Entities.Category
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+<form method="post">
+    <input type="hidden" name="Id" value="@Model.ID"/>
+    <label id="lbName" > Enter Name</label>
+    <input value="@Model.Name" class="form-control" id="name" name="Name" />
+    <br />
+    <label id="lbDescription">Enter Description</label>
+    <input value="@Model.Description" class="form-control" id="description" name="Description" />
+    <br />
+    <button type="submit" class="btn btn-success">Save</button>
+</form>
+
+

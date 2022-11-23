@@ -14,6 +14,7 @@ namespace ClothesStore.Web.Controllers
         CategoriesService categoriesService= new CategoriesService();
 
 
+        //list all categories
         [HttpGet]
         public ActionResult Index()
         {
@@ -36,6 +37,41 @@ namespace ClothesStore.Web.Controllers
             }
             
             return RedirectToAction("Index");
+        }
+
+
+        //Edit category
+        [HttpGet]
+        public ActionResult Edit(int Id) {
+        
+            var cat= categoriesService.GetCategory(Id);
+            return View(cat);
+        }
+
+        [HttpPost]
+        public ActionResult Edit(Category category)
+        {
+            categoriesService.EditCategory(category);
+            return RedirectToAction("Index");
+
+        }
+
+        //deleting
+        [HttpGet]
+        public ActionResult Delete(int Id)
+        {
+
+            var cat = categoriesService.GetCategory(Id);
+            return View(cat);
+        }
+
+        [HttpPost]
+        public ActionResult Delete(Category c)
+        {
+            var cat = categoriesService.GetCategory(c.ID);
+            categoriesService.DeleteCategory(cat);
+            return RedirectToAction("Index");
+
         }
     }
 }

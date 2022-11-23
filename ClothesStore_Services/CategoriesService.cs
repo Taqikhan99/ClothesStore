@@ -33,5 +33,40 @@ namespace ClothesStore_Services
 
             }
         }
+
+
+        //getting one category
+        public Category GetCategory(int Id)
+        {
+            using (var context = new StoreDbContext())
+            {
+                return context.Categories.Find(Id);
+
+            }
+        }
+
+
+        //edit category
+        public void EditCategory(Category category)
+        {
+            using (var context = new StoreDbContext())
+            {
+                context.Entry(category).State=System.Data.Entity.EntityState.Modified;
+
+                context.SaveChanges();
+
+            }
+        }
+
+        public void DeleteCategory(Category category) {
+
+            using (var context = new StoreDbContext())
+            {
+                context.Entry(category).State = System.Data.Entity.EntityState.Deleted;
+
+                context.SaveChanges();
+
+            }
+        }
     }
 }
