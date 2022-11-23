@@ -341,6 +341,7 @@
     <Content Include="Scripts\popper.js.map" />
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
+    <Content Include="Views\Category\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -354,6 +355,10 @@
     <ProjectReference Include="..\ClothesStore_Entities\ClothesStore_Entities.csproj">
       <Project>{C3479BA7-3CC9-4972-A6E4-4E6371E5360B}</Project>
       <Name>ClothesStore_Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ClothesStore_Services\ClothesStore_Services.csproj">
+      <Project>{8DA9FF83-D5EE-4433-9C66-DE5E294D0648}</Project>
+      <Name>ClothesStore_Services</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

@@ -1,4 +1,5 @@
 ﻿using ClothesStore_Entities;
+using ClothesStore_Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +10,16 @@ namespace ClothesStore.Web.Controllers
 {
     public class CategoryController : Controller
     {
-        // GET: Category
+
+        CategoriesService categoriesService= new CategoriesService();
+
+
+        [HttpGet]
+        public ActionResult Index()
+        {
+            List<Category> categories = categoriesService.GetCategories();
+            return View(categories);
+        }
 
         [HttpGet]
         public ActionResult Create()
@@ -20,7 +30,12 @@ namespace ClothesStore.Web.Controllers
         [HttpPost]
         public ActionResult Create(Category category)
         {
-            return View();
+            if (category != null)
+            {
+                categoriesService.SaveCategory(category);
+            }
+            
+            return RedirectToAction("Index");
         }
     }
 }
