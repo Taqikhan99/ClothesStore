@@ -4,10 +4,16 @@
 }
 
 <h2>Index</h2>
-
+<h3>Helllo ww</h3>
 @foreach(var cat in Model)
             {
-                <h2>@cat.Name</h2>
-                <h3>@cat.Description</h3>
+                <div class="card border border-primary my-2" style="width: 18rem;">
+                    
+                    <div class="card-body ">
+                        <h2>@cat.Name</h2>
+                        <h3>@cat.Description</h3>
+                    </div>
+                </div>
+                
             }
 

@@ -45,7 +45,9 @@ namespace ClothesStore.Web.Controllers
         public ActionResult Edit(int Id) {
         
             var cat= categoriesService.GetCategory(Id);
-            return View(cat);
+            if(cat!=null)
+                return View(cat);
+            return RedirectToAction("Index");
         }
 
         [HttpPost]
