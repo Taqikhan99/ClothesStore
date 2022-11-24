@@ -3,7 +3,7 @@
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class intialize : DbMigration
+    public partial class Migration1 : DbMigration
     {
         public override void Up()
         {
@@ -22,6 +22,7 @@
                 c => new
                     {
                         ID = c.Int(nullable: false, identity: true),
+                        Price = c.Int(nullable: false),
                         Name = c.String(),
                         Description = c.String(),
                         Category_ID = c.Int(),

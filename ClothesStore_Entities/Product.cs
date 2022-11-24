@@ -9,5 +9,6 @@ namespace ClothesStore_Entities
     public class Product:BaseEntity
     {
         public Category Category { get; set; }
+        public int Price { get; set; }
     }
 }
