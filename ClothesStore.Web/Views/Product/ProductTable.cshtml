@@ -3,35 +3,38 @@
     ViewBag.Title = "ProductTable";
 }
 
-<h2>ProductTable</h2>
-<br />
-<table class="table">
-    <thead>
-        <tr>
 
-            <th scope="col">Product</th>
-            <th scope="col">Category</th>
-            <th scope="col">Description</th>
-            <th scope="col">Price</th>
-            <th scope="col">Actions</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var p in Model)
-        {
+<div id="product_table">
+    <table class="table">
+        <thead>
             <tr>
-                <td>@p.Name</td>
-                <td>-</td>
-                <td>@p.Description</td>
-                <td>@p.Price </td>
-                <td>
-                    <button class="btn btn-primary">Edit</button>
-                    <button class="btn btn-danger">Delete</button>
-                </td>
+
+                <th scope="col">Product</th>
+                <th scope="col">Category</th>
+                <th scope="col">Description</th>
+                <th scope="col">Price</th>
+                <th scope="col">Actions</th>
             </tr>
-        }
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+            @foreach (var p in Model)
+            {
+                <tr>
+                    <td>@p.Name</td>
+                    <td>-</td>
+                    <td>@p.Description</td>
+                    <td>@p.Price </td>
+                    <td>
+                        <button class="btn btn-primary">Edit</button>
+                        <button class="btn btn-danger">Delete</button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+</div>
+
 
 
 

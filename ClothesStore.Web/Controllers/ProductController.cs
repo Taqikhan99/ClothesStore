@@ -17,10 +17,18 @@ namespace ClothesStore.Web.Controllers
             return View();
         }
 
-        public ActionResult ProductTable()
+        public ActionResult ProductTable(string s)
+        
         { 
-            var p = productsService.GetProcucts();
-            return PartialView(p);
+            var pr = productsService.GetProcucts();
+
+            if (!string.IsNullOrEmpty(s))
+            {
+                pr = pr.Where(p => p.Name!= null && p.Name.ToUpper().Contains(s.ToUpper())).ToList();
+            }
+
+            
+            return PartialView(pr);
         }
 
         [HttpGet]
