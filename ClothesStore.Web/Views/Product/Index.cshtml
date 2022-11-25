@@ -1,0 +1,42 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+<h2>ProductTable</h2>
+<br />
+<form class="form-inline my-2 my-lg-0" method="post" action="Product/ProductTable">
+    <input id="searchbox1" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+    <button id="searchBtn" class="btn btn-outline-success my-2 my-sm-0" type="button">Search</button>
+</form>
+<br />
+@{
+    Html.RenderAction("ProductTable");
+
+}
+
+
+<script>
+    let srchBtn = document.getElementById("searchBtn");
+    let table = document.getElementById("product_table");
+    srchBtn.addEventListener('click', () => {
+        var searchTxt = document.getElementById("searchbox1").value;
+        console.log(searchTxt);
+        $.ajax({
+            type: "GET",
+            url: "Product/ProductTable",
+            data: {
+                s: searchTxt
+                }
+        }).done(function (response) {
+            
+            $("#product_table").html(response).show()
+            table.innerHTML = response;
+            console.log(table.innerHTML)
+
+        }).fail(function (XMLHttpRequest, textStatus, errorThrown) {
+            alert("Something wrong happened!")
+        })
+    })
+
+
+</script>
